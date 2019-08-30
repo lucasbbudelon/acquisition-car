@@ -11,3 +11,8 @@ sed -i "s/${current}/${new}-SNAPSHOT/g" build.gradle
 
 # build app
 bash ./scripts/build.sh
+
+# create tag
+jarFile=$(ls ./build/libs)
+git tag -a ${jarFile} -m "${typeUpdate} update"
+git push --tags
